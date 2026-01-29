@@ -12,7 +12,7 @@ API_TOKEN = "MYDdhR4GjOkrY36Lfg2brVvyiqpnYbNm"  # or st.secrets["API_TOKEN"]
 
 # --- Streamlit Page Setup ---
 st.set_page_config(
-    page_title="HC FinOps Agent",
+    page_title="HC Demo Agent",
     page_icon="🤖",
     layout="wide"
 )
@@ -201,5 +201,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
