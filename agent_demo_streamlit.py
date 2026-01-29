@@ -24,8 +24,8 @@ SNAPLOGIC_AGENT_URL = st.sidebar.text_input(
 )
 
 API_KEY = st.sidebar.text_input(
-    "API Key (optional)",
-    type="MYDdhR4GjOkrY36Lfg2brVvyiqpnYbNm"
+    "MYDdhR4GjOkrY36Lfg2brVvyiqpnYbNm",
+    type="password"
 )
 
 # -----------------------------
@@ -87,4 +87,5 @@ if st.button("🚀 Run Agent"):
 
             except Exception as e:
                 st.error("Unable to reach SnapLogic Agent")
+
                 st.text(str(e))
