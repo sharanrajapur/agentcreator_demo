@@ -48,7 +48,7 @@ if st.button("🚀 Run Agent"):
             "Content-Type": "application/json"
         }
 
-        if API_KEY:
+        if API_TOKEN:
             headers["Authorization"] = f"Bearer {API_TOKEN}"
 
         with st.spinner("Agent is thinking..."):
@@ -82,5 +82,6 @@ if st.button("🚀 Run Agent"):
                 st.error("Unable to reach SnapLogic Agent")
 
                 st.text(str(e))
+
 
 
