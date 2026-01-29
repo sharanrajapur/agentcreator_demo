@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 import json
+from datetime import timedelta
 
 # -----------------------------
 # Page Configuration
@@ -16,18 +17,10 @@ st.caption("Single Agent • Structured Context • Enterprise Ready")
 # -----------------------------
 # SnapLogic Configuration
 # -----------------------------
-st.sidebar.header("⚙️ SnapLogic Agent Settings")
-
-SNAPLOGIC_AGENT_URL = st.sidebar.text_input(
-    "Agent API Endpoint",
-    placeholder="https://elastic.snaplogic.com/api/1/rest/slsched/feed/SIE_Health_Dev/HC_AgentCreator_Learnathon/Sharan/Sharan_AgentTask"
-)
-
-API_KEY = st.sidebar.text_input(
-    "MYDdhR4GjOkrY36Lfg2brVvyiqpnYbNm",
-    type="password"
-)
-
+# --- Configuration ---
+# It's recommended to use st.secrets for storing sensitive information like API tokens
+API_URL = "https://elastic.snaplogic.com/api/1/rest/slsched/feed/SIE_Health_Dev/HC_AgentCreator_Learnathon/Sharan/Sharan_AgentTask"
+API_TOKEN = "MYDdhR4GjOkrY36Lfg2brVvyiqpnYbNm"  # or st.secrets["API_TOKEN"]
 # -----------------------------
 # Agent Prompt
 # -----------------------------
@@ -42,8 +35,8 @@ user_prompt = st.text_area(
 # Execute Agent
 # -----------------------------
 if st.button("🚀 Run Agent"):
-    if not SNAPLOGIC_AGENT_URL or not user_prompt:
-        st.warning("Please provide the Agent URL and a prompt.")
+    if not user_prompt:
+        st.warning("Please provide a prompt.")
     else:
         payload = {
             "agentName": "KnowledgeAgent",
@@ -89,3 +82,4 @@ if st.button("🚀 Run Agent"):
                 st.error("Unable to reach SnapLogic Agent")
 
                 st.text(str(e))
+
