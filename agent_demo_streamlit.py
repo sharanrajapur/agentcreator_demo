@@ -170,7 +170,7 @@ def handle_prompt_submission(prompt_text):
 
 def display_main_content():
     """Displays the main layout of the application."""
-    st.title("🤖 HC FinOps Agent")
+    st.title("🤖 HC Demo Agent")
     st.write("Ask questions and explore example prompts for different use case categories.")
 
 def display_chat_interface():
@@ -201,6 +201,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
