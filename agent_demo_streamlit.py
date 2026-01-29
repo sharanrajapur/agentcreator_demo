@@ -49,12 +49,12 @@ if st.button("🚀 Run Agent"):
         }
 
         if API_KEY:
-            headers["Authorization"] = f"Bearer {API_KEY}"
+            headers["Authorization"] = f"Bearer {API_TOKEN}"
 
         with st.spinner("Agent is thinking..."):
             try:
                 response = requests.post(
-                    SNAPLOGIC_AGENT_URL,
+                    API_URL,
                     headers=headers,
                     data=json.dumps(payload),
                     timeout=30
@@ -82,4 +82,5 @@ if st.button("🚀 Run Agent"):
                 st.error("Unable to reach SnapLogic Agent")
 
                 st.text(str(e))
+
 
